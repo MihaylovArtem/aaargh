@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GrassController : MonoBehaviour {
-
     public int grassCount = 72;
     public float radius = 100f;
     public GameObject grassObject;
@@ -21,7 +21,7 @@ public class GrassController : MonoBehaviour {
             var grass = Instantiate(grassObject) as GameObject;
             grass.transform.position = new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius);
             grass.transform.LookAt(Vector3.zero);
-                    
+
             grass.transform.localScale += new Vector3(GetRandomNumber(0.8, 1.2), GetRandomNumber(0.8, 1.5), 0);
         }
 	}
@@ -32,7 +32,8 @@ public class GrassController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
 		
 	}
 }
