@@ -27,10 +27,9 @@ public class EnemyScript : MonoBehaviour {
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.tag == "Bullet") {
 			hitPoints -= GameManager.damageByBullet;
-			Debug.Log (hitPoints);
 			if (hitPoints <= 0.0f) {
-				//Runaway, runaway baby!
-				DestroySelf ();
+				rigidbodyComponent.AddForce (gameObject.transform.forward * EnemyManager.currentEnemySpeed * -4);
+				Invoke ("DestroySelf", 5.0f);
 			} else {
 				rigidbodyComponent.AddForce (gameObject.transform.forward * EnemyManager.currentEnemySpeed * -3);
 				Invoke ("ReturnPreviousForce", 0.3f);
