@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 	public static float breathingTime;
 	public static float damageByBullet = 10.0f;
 
+	private int startEnemiesCount = 3;
+
 	EnemyManager enemyManager;
 
 	// Use this for initialization
@@ -40,12 +42,13 @@ public class GameManager : MonoBehaviour {
 	void Breathe() {
 		Debug.Log ("Breathing");
 		gameState = GameState.Breathing;
+		GameManager.level++;
 		//Здесь добавим какой-нибудь progress bar
 		Invoke ("StartNewLevel", breathingTime);
 	}
 
 	void StartNewLevel() {
-		enemyManager.SpawnLevel (5);
+		enemyManager.SpawnLevel (startEnemiesCount + GameManager.level / 2);
 		gameState = GameState.Playing;
 	}
 

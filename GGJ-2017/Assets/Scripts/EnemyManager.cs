@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour {
-
-	public float enemySpeedMultiply = 1.0f;
-	public const float currentEnemySpeed = 50;
+	
+	public static float currentEnemySpeed;
+	public const float startEnemySpeed = 50;
 	public GameObject enemyPrefab;
 
 	private System.Random generator;
@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		enemySpeedMultiply = 1.0f + GameManager.level / 10.0f;
+		currentEnemySpeed = startEnemySpeed * (1 + (GameManager.level - 1) / 10.0f);
 	}
 
 	public void SpawnLevel(int enemyCount) {

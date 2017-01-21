@@ -8,9 +8,9 @@ public class EnemyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Vector3 force = (gameObject.transform.position - new Vector3 (0, 0, 0));
+		Vector3 force = -(gameObject.transform.position - new Vector3 (0, 0, 0));
 		force.Normalize ();
-		gameObject.GetComponent<Rigidbody> ().AddForce (-200*force);
+		gameObject.GetComponent<Rigidbody>().AddForce (force*EnemyManager.currentEnemySpeed);
 	}
 	
 	// Update is called once per frame
