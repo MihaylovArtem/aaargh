@@ -42,11 +42,13 @@ public class DinosuarController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			ShootWave ();
 		}
+		transform.rotation = Quaternion.Euler (0, transform.rotation.eulerAngles.y, 0);
 	}
 
 	void ShootWave() {
+		var cameraTransform = Camera.main.transform;
 		var cloneWave = Instantiate (wavePrefab) as GameObject;
-		cloneWave.transform.position = new Vector3 (transform.position.x, transform.position.y-0.2f, transform.position.z);
+		cloneWave.transform.position = new Vector3 (cameraTransform.position.x, cameraTransform.position.y-0.2f, cameraTransform.position.z);
 		cloneWave.transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x-100, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z-90));
 		cloneWave.GetComponent <Rigidbody> ().velocity = transform.forward * waveSpeed;
 	}
