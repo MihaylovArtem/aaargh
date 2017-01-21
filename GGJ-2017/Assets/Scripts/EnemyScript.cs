@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour {
 		force.Normalize ();
 		hitPoints = maxHitPoints;
 		gameObject.GetComponent<Rigidbody>().AddForce (force*EnemyManager.currentEnemySpeed);
+		hpBar.GetComponent<Rigidbody>().AddForce (force*EnemyManager.currentEnemySpeed);
 	}
 	
 	// Update is called once per frame

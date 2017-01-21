@@ -29,13 +29,13 @@ public class GameManager : MonoBehaviour {
 		CheckEnemies ();
 		enemyManager = gameObject.GetComponent<EnemyManager> ();
 		highscore = PlayerPrefs.GetInt ("highscore");
+		//Вместо этого в апдейте будем проверять, что если крик 2 сек, то начинаем играть
 		Invoke ("StartNewLevel", 2.0f);
 	}
 
 	void CheckEnemies() {
 		if (gameState == GameState.Playing) {
 			var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-			//Debug.Log (enemies.Length);
 			if (enemies.Length == 0) {
 				Breathe ();
 			}
@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour {
 		progressBar.SetActive (true);
 		breathingObject.SetActive (true);
 		GameManager.level++;
-		//Здесь добавим какой-нибудь progress bar
 		Invoke ("StartNewLevel", breathingTime);
 	}
 
