@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	private float progressBarTimer = 0.0f;
 	private float newGameLoudnessTimer = 0.0f;
 	private int startEnemiesCount = 5;
-
+	public GameObject newGameProgressBar;
 	public UIScript uiScript;
 
 	EnemyManager enemyManager;
@@ -83,22 +83,30 @@ public class GameManager : MonoBehaviour {
 		progressBarTimer += Time.deltaTime;
 		switch (gameState) {
 		case GameState.MainMenu: {
-				if (AudioInput.MicLoudness < 0.3) {
+				newGameProgressBar.SetActive (true);
+				newGameProgressBar.transform.localScale = new Vector3 (newGameLoudnessTimer / 2.0f, 1, 1);
+				if (AudioInput.MicLoudness > 0.3) {
 					newGameLoudnessTimer += Time.deltaTime;
-				} else {
+					Debug.Log (newGameLoudnessTimer);
 					if (newGameLoudnessTimer > 2.0f) {
 						newGameLoudnessTimer = 0.0f;
+						newGameProgressBar.SetActive (false);
+						newGameProgressBar.transform.localScale = new Vector3 (0, 1, 1);
 						StartNewLevel (); 
 					}
 				}
 				break;
 			}
 		case GameState.GameOver: {
-				if (AudioInput.MicLoudness < 0.3) {
+				newGameProgressBar.SetActive (true);
+				newGameProgressBar.transform.localScale = new Vector3 (newGameLoudnessTimer / 2.0f, 1, 1);
+				if (AudioInput.MicLoudness > 0.3) {
 					newGameLoudnessTimer += Time.deltaTime;
-				} else {
+					Debug.Log (newGameLoudnessTimer);
 					if (newGameLoudnessTimer > 2.0f) {
 						newGameLoudnessTimer = 0.0f;
+						newGameProgressBar.SetActive (false);
+						newGameProgressBar.transform.localScale = new Vector3 (0, 1, 1);
 						StartNewLevel (); 
 					}
 				}

@@ -63,7 +63,7 @@ public class UIScript : MonoBehaviour {
 			arghTextObject.SetActive (false);
 			waveTextObject.SetActive (false);
 			gameOverTextObject.SetActive (true);
-			gameOverText.text = "You lost your cake :(\nShout to start again!\nYou will go to main menu in " +
+			gameOverText.text = "You lost your cake :(\nShout to start again!\n\nYou will go to main menu in " +
 				Mathf.Round (gameOverTimer).ToString ();
 			if (gameOverTimer <= 0.0f) {
 				gameOverTimer = 10.0f;
