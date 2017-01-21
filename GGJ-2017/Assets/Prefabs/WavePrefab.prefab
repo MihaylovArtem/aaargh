@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 1979202339190150, guid: 40d45a49b6d504d9fa9ae194bbe6468c, type: 2}
-  lifetime: 2
 --- !u!212 &212558111866150532
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -60,7 +60,6 @@ public class GrassScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-		Debug.Log ("Trigger Enter");
 		if (other.tag == "Enemy") {
 			numberOfCollisions++;
 			var otherAngle = GetAngleFromBase (other.transform.position);
@@ -69,7 +68,6 @@ public class GrassScript : MonoBehaviour {
 				rotateToRight = true;
 			else
 				rotateToRight = false;
-			Debug.Log (otherAngle.ToString () + " other and grass " + grassAngle.ToString ());
 			if (!needRotation) {
 				lastRotation = transform.rotation;
 				rotationTimer = 0;

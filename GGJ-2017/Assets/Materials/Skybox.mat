@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CrumpledTexture
-  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _NORMALMAP _PARALLAXMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_Name: Skybox
+  m_Shader: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -16,9 +16,15 @@ Material:
     serializedVersion: 2
     m_TexEnvs:
     - first:
+        name: _BackTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2574bac9987624197ab0c10e5fdca117, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _BumpMap
       second:
-        m_Texture: {fileID: 2800000, guid: 655b4f82d96304a788b921f53ed2cfc6, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -40,9 +46,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _DownTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2574bac9987624197ab0c10e5fdca117, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _EmissionMap
       second:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _FrontTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2574bac9987624197ab0c10e5fdca117, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _LeftTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2574bac9987624197ab0c10e5fdca117, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -66,22 +90,34 @@ Material:
     - first:
         name: _ParallaxMap
       second:
-        m_Texture: {fileID: 2800000, guid: 655b4f82d96304a788b921f53ed2cfc6, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _SpecGlossMap
+        name: _RightTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2574bac9987624197ab0c10e5fdca117, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Tex
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _UpTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2574bac9987624197ab0c10e5fdca117, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
-        name: PixelSnap
-      second: 0
+        name: _AtmosphereThickness
+      second: 1
     - first:
         name: _BumpScale
-      second: 0.4
+      second: 1
     - first:
         name: _Cutoff
       second: 0.5
@@ -92,8 +128,11 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _Exposure
+      second: 0.62
+    - first:
         name: _GlossMapScale
-      second: 0.332
+      second: 1
     - first:
         name: _Glossiness
       second: 0.5
@@ -111,19 +150,25 @@ Material:
       second: 1
     - first:
         name: _Parallax
-      second: 0.0477
+      second: 0.02
     - first:
-        name: _Shininess
-      second: 0.078125
+        name: _Rotation
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
-      second: 1
+      second: 0
     - first:
         name: _SpecularHighlights
       second: 1
     - first:
         name: _SrcBlend
       second: 1
+    - first:
+        name: _SunDisk
+      second: 2
+    - first:
+        name: _SunSize
+      second: 0.04
     - first:
         name: _UVSec
       second: 0
@@ -133,10 +178,16 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.43382353, g: 1, b: 0.48458418, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
-        name: _SpecColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+        name: _GroundColor
+      second: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    - first:
+        name: _SkyTint
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - first:
+        name: _Tint
+      second: {r: 0.61764705, g: 0.74685603, b: 1, a: 0.997}

@@ -24,7 +24,7 @@ public class WaveScript : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Plane" || other.tag == "Enemy") {
 			var particlesClone = Instantiate (particles) as GameObject;
-			particlesClone.transform.position = this.transform.position;
+			particlesClone.transform.position = other.transform.position;
 			DestroySelf ();
 		}
 	}
