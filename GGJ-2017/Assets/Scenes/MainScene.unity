@@ -248,8 +248,6 @@ GameObject:
   - component: {fileID: 547508021}
   - component: {fileID: 547508025}
   - component: {fileID: 547508024}
-  - component: {fileID: 547508027}
-  - component: {fileID: 547508026}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -321,30 +319,6 @@ MonoBehaviour:
   radius: 40
   grassObject: {fileID: 1307642323083474, guid: edc6d2b39f4749e48990475465876376,
     type: 2}
---- !u!114 &547508026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 547508020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ef5966faea22644accd9fa79c73ab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &547508027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 547508020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34f232a5221bba4899337e3c58c86ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelText: {fileID: 1510182723}
-  accelText2: {fileID: 713077507}
 --- !u!1 &713077505
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +638,8 @@ GameObject:
   - component: {fileID: 1878134144}
   - component: {fileID: 1878134149}
   - component: {fileID: 1878134151}
+  - component: {fileID: 1878134152}
+  - component: {fileID: 1878134150}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -752,6 +728,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   clampAngle: 80
+--- !u!114 &1878134150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878134143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ef5966faea22644accd9fa79c73ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1878134151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,3 +751,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wavePrefab: {fileID: 1275562098849696, guid: bac02f239cf24484c9573f172a773513, type: 2}
+--- !u!114 &1878134152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878134143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34f232a5221bba4899337e3c58c86ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelText: {fileID: 1510182723}
+  accelText2: {fileID: 713077507}
