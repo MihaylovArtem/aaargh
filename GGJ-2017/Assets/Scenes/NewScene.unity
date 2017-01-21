@@ -123,7 +123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0010375977, y: -49.9}
+  m_AnchoredPosition: {x: -0.0009765625, y: -49.9}
   m_SizeDelta: {x: 0, y: -317.5}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &60598504
@@ -1236,6 +1236,8 @@ GameObject:
   - component: {fileID: 1861513067}
   - component: {fileID: 1861513066}
   - component: {fileID: 1861513065}
+  - component: {fileID: 1861513071}
+  - component: {fileID: 1861513070}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1265,10 +1267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac04b64425c36f458e2d4c5a7c549fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassCount: 72
+  grassCount: 80
   radius: 40
   grassObject: {fileID: 1307642323083474, guid: edc6d2b39f4749e48990475465876376,
     type: 2}
+  minRadius: 48
 --- !u!114 &1861513067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1289,7 +1292,7 @@ MonoBehaviour:
   enemy4Prefab: {fileID: 1701544185333654, guid: bad1d7d0e0a2b0d4886bb085b4975ee3,
     type: 2}
   bossPrefab: {fileID: 1489502925428246, guid: 4a02c1065562843daa68b9ed9dd95a8d, type: 2}
-  radius: 40
+  radius: 48
 --- !u!114 &1861513068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,3 +1322,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1861513070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1861513064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac04b64425c36f458e2d4c5a7c549fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassCount: 96
+  radius: 64
+  grassObject: {fileID: 1718467930870140, guid: fbb597d47286f4852a4addb4f848f174,
+    type: 2}
+  minRadius: 36
+--- !u!114 &1861513071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1861513064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac04b64425c36f458e2d4c5a7c549fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassCount: 88
+  radius: 52
+  grassObject: {fileID: 1718467930870140, guid: fbb597d47286f4852a4addb4f848f174,
+    type: 2}
+  minRadius: 48

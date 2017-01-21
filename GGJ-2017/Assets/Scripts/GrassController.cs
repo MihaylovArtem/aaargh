@@ -7,6 +7,7 @@ public class GrassController : MonoBehaviour {
     public int grassCount = 72;
     public float radius = 100f;
     public GameObject grassObject;
+	public float minRadius = 24;
 
     private System.Random generator;
 
@@ -21,7 +22,7 @@ public class GrassController : MonoBehaviour {
             grass.transform.position = new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius);
             grass.transform.LookAt(Vector3.zero);
 
-            grass.transform.localScale += new Vector3(GetRandomNumber(0.8, 1.2), GetRandomNumber(0.8, 1.5), 0);
+			grass.transform.localScale += new Vector3(GetRandomNumber(0.8, 1.2), GetRandomNumber(0.8, 1.5)*radius/minRadius, 0);
         }
 	}
 

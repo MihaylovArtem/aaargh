@@ -12,6 +12,11 @@ public class EnemyScript : MonoBehaviour {
 	private System.Random generator;
 	private int monsterType;
 	private float startingXScale = 1f;
+	private Vector3 forwardVector;
+	float rotateTime = 1.0f;
+	float timer = 0.5f;
+	float direction = 1;
+	float rotationSpeed = 90f;
 
 	private bool isBoss;
 
@@ -25,10 +30,19 @@ public class EnemyScript : MonoBehaviour {
 		rigidbodyComponent = gameObject.GetComponent<Rigidbody> ();
 		rigidbodyComponent.AddForce (enemySingleMultiplier * force*EnemyManager.currentEnemySpeed);
 		startingXScale = hpBar.transform.localScale.x;
+		forwardVector = transform.forward;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (GameManager.gameState == GameManager.GameState.Playing) {
+			timer += Time.deltaTime;
+			if (timer > rotateTime) {
+				timer = 0;
+				direction *= -1;
+			}
+			transform.Rotate (new Vector3 (0, direction * rotationSpeed * Time.deltaTime, 0));
+		}
 		hpBar.transform.position = new Vector3 (gameObject.transform.position.x, hpBar.transform.position.y, gameObject.transform.position.z);
 		hpBar.transform.localScale = new Vector3 (hitPoints / maxHitPoints * startingXScale, 0.1f, 0.1f);
 		if (isBoss) {
@@ -47,18 +61,18 @@ public class EnemyScript : MonoBehaviour {
 		if (collider.gameObject.tag == "Bullet") {
 			if (hitPoints <= 0.0f) {
 				hitPoints = 0;
-				rigidbodyComponent.AddForce (gameObject.transform.forward * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -4);
+				rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -4);
 				Invoke ("DestroySelf", 5.0f);
 			} else {
 				hitPoints -= GameManager.damageByBullet;
-				rigidbodyComponent.AddForce (gameObject.transform.forward * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -3);
+				rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -3);
 				Invoke ("ReturnPreviousForce", 0.3f);
 			}
 		}
 	}
 
 	void ReturnPreviousForce() {
-		rigidbodyComponent.AddForce (gameObject.transform.forward * enemySingleMultiplier * EnemyManager.currentEnemySpeed*3);
+		rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed*3);
 	}
 
 	void DestroySelf() {
@@ -67,6 +81,7 @@ public class EnemyScript : MonoBehaviour {
 
 	public void RunAway() {
 		rigidbodyComponent.AddForce (new Vector3(1,0,0) * enemySingleMultiplier * EnemyManager.currentEnemySpeed*-6);
+		transform.LookAt ((new Vector3(1,0,0) ) * enemySingleMultiplier * EnemyManager.currentEnemySpeed*-6);
 		Invoke ("DestroySelf", 5.0f);
 	}
 }
