@@ -4,15 +4,22 @@ using UnityEngine;
 using System.Linq;
 
 public class GrassScript : MonoBehaviour {
+    enum Distination
+    {
+        Right,
+        Left
+    };
 
     public Sprite[] sprites;
+
+    private Distination dist;
 
 	// Use this for initialization
 	void Start () {
         var generator = new System.Random();
         foreach (var sprite in sprites)
         {
-            var spriteRenderer = this.GetComponent<SpriteRenderer>();
+            var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[generator.Next(sprites.Count())];
         }          
 	}
@@ -21,4 +28,26 @@ public class GrassScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    float GetAngleFromBase(Vector3 pos)
+    {
+        return Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger enter");
+        var otherAngle = GetAngleFromBase(other.transform.position);
+        var grassAngle = GetAngleFromBase(transform.position);
+
+        if (otherAngle > grassAngle)
+            transform.RotateAround(transform.position, Vector3.down, 30 * Time.deltaTime);
+        else
+            transform.RotateAround(transform.position, Vector3.down, -30 * Time.deltaTime);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+
+    }
 }
