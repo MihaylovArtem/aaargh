@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<RigidBod2D> ().AddForceAtPosition (Vector3.Forward, new Vector3 (0, 0, 0));
+		gameObject.GetComponent<Rigidbody2D> ().AddForceAtPosition (Vector3.forward, new Vector3 (0, 0, 0));
 	}
 	
 	// Update is called once per frame
