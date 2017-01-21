@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour {
 	public static float breathingTime;
 	public static float damageByBullet = 10.0f;
 	public static int highscore = 0;
-
+	public float progressBarTime;
+	public GameObject breathingObject;
+	public GameObject progressBar;
+	private float progressBarTimer = 0;
 	private int startEnemiesCount = 3;
 
 	EnemyManager enemyManager;
@@ -42,13 +45,20 @@ public class GameManager : MonoBehaviour {
 
 	void Breathe() {
 		Debug.Log ("Breathing");
+		progressBarTimer = 0.0f;
 		gameState = GameState.Breathing;
+		progressBarTime = breathingTime;
+		progressBar.SetActive (true);
+		breathingObject.SetActive (true);
 		GameManager.level++;
 		//Здесь добавим какой-нибудь progress bar
 		Invoke ("StartNewLevel", breathingTime);
 	}
 
 	void StartNewLevel() {
+		progressBar.transform.localScale = new Vector3 (1, 1, 1);
+		progressBar.SetActive (false);
+		breathingObject.SetActive (false);
 		enemyManager.SpawnLevel (startEnemiesCount + GameManager.level / 2);
 		gameState = GameState.Playing;
 	}
@@ -62,6 +72,7 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		progressBarTimer += Time.deltaTime;
 		switch (gameState) {
 		case GameState.MainMenu: {
 				break;
@@ -70,6 +81,7 @@ public class GameManager : MonoBehaviour {
 				break;
 			}
 		case GameState.Breathing: {
+				progressBar.transform.localScale = Vector3.Lerp (new Vector3 (1, 1, 1), new Vector3 (0, 1, 1), progressBarTimer / breathingTime);
 				break;
 			}
 		case GameState.Playing: {
