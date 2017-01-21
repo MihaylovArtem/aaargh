@@ -9,10 +9,11 @@ public class GameManager : MonoBehaviour {
 		GameOver,
 		Breathing
 	}
-	public static int level;
+	public static int level = 1;
 	public static GameState gameState;
 	public static float breathingTime;
 	public static float damageByBullet = 10.0f;
+	public static int highscore = 0;
 
 	private int startEnemiesCount = 3;
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour {
 		breathingTime = 5.0f;
 		CheckEnemies ();
 		enemyManager = gameObject.GetComponent<EnemyManager> ();
-
+		highscore = PlayerPrefs.GetInt ("highscore");
 		Invoke ("StartNewLevel", 2.0f);
 	}
 
@@ -50,6 +51,13 @@ public class GameManager : MonoBehaviour {
 	void StartNewLevel() {
 		enemyManager.SpawnLevel (startEnemiesCount + GameManager.level / 2);
 		gameState = GameState.Playing;
+	}
+
+	void GameOver() {
+		highscore = GameManager.level;
+		GameManager.level = 1;
+		PlayerPrefs.SetInt ("highscore", highscore);
+		PlayerPrefs.Save ();
 	}
 
 	// Update is called once per frame
