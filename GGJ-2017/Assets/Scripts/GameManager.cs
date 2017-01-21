@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour {
 		Playing,
 		MainMenu,
 		GameOver,
-		Breathing
+		Breathing,
+		Win
 	}
 	public static int level = 1;
 	public static GameState gameState;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject breathingObject;
 	public GameObject progressBar;
 	private float progressBarTimer = 0;
-	private int startEnemiesCount = 3;
+	private int startEnemiesCount = 6;
 
 	EnemyManager enemyManager;
 
@@ -58,8 +59,13 @@ public class GameManager : MonoBehaviour {
 		progressBar.transform.localScale = new Vector3 (1, 1, 1);
 		progressBar.SetActive (false);
 		breathingObject.SetActive (false);
-		enemyManager.SpawnLevel (startEnemiesCount + GameManager.level / 2);
-		gameState = GameState.Playing;
+		if (level == 1 || level == 2 || level == 4) {
+			StartCoroutine (enemyManager.SpawnLevel (startEnemiesCount + level / 2, level, level + 1, 0, 4f));
+		} else if (level == 3) {
+			StartCoroutine (enemyManager.SpawnLevel (1, level, 20, 0, 0.5f));
+		} else if (level == 5) {
+			StartCoroutine (enemyManager.SpawnLevel (3, level, 100, 0, 3f));
+		}
 	}
 
 	void GameOver() {
