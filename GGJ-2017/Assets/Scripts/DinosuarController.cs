@@ -60,7 +60,7 @@ public class DinosuarController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Enemy") {
+		if (other.gameObject.tag == "Enemy" && GameManager.gameState == GameManager.GameState.Playing) {
 			AllRunAway ();
 			GameManager.gameState = GameManager.GameState.GameOver;
 		}

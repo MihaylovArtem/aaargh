@@ -21,7 +21,11 @@ public class UIScript : MonoBehaviour {
 	}
 
 	void Update() {
-		gameOverTimer -= Time.deltaTime;
+		if (GameManager.gameState == GameManager.GameState.GameOver) {
+			gameOverTimer -= Time.deltaTime;
+		} else {
+			gameOverTimer = 10.0f;
+		}
 	}
 	
 	// Update is called once per frame
