@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void StartNewLevel() {
-		enemyManager.SpawnLevel (5);
+		enemyManager.SpawnLevel (20);
 		gameState = GameState.Playing;
 	}
 

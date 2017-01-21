@@ -19,7 +19,6 @@ public class EnemyScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		Debug.Log ("Trigger");
 		if (collider.gameObject.tag == "Bullet") {
 			hitPoints -= GameManager.damageByBullet;
 			Debug.Log (hitPoints);
