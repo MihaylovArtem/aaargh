@@ -61,4 +61,9 @@ public class EnemyScript : MonoBehaviour {
 	void DestroySelf() {
 		Destroy (gameObject);
 	}
+
+	public void RunAway() {
+		rigidbodyComponent.AddForce (gameObject.transform.forward * enemySingleMultiplier * EnemyManager.currentEnemySpeed*-6);
+		Invoke ("DestroySelf", 5.0f);
+	}
 }

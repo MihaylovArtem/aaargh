@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour {
 	public float progressBarTime;
 	public GameObject breathingObject;
 	public GameObject progressBar;
-	private float progressBarTimer = 0;
+	private float progressBarTimer = 0.0f;
+	private float newGameLoudnessTimer = 0.0f;
 	private int startEnemiesCount = 3;
 
 	EnemyManager enemyManager;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour {
 		enemyManager = gameObject.GetComponent<EnemyManager> ();
 		highscore = PlayerPrefs.GetInt ("highscore");
 		//Вместо этого в апдейте будем проверять, что если крик 2 сек, то начинаем играть
-		Invoke ("StartNewLevel", 2.0f);
+		//Invoke ("StartNewLevel", 2.0f);
 	}
 
 	void CheckEnemies() {
@@ -74,6 +75,15 @@ public class GameManager : MonoBehaviour {
 		progressBarTimer += Time.deltaTime;
 		switch (gameState) {
 		case GameState.MainMenu: {
+				Debug.Log (AudioInput.MicLoudness);
+				if (AudioInput.MicLoudness < 0.3) {
+					newGameLoudnessTimer += Time.deltaTime;
+				} else {
+					if (newGameLoudnessTimer > 2.0f) {
+						newGameLoudnessTimer = 0.0f;
+						StartNewLevel (); 
+					}
+				}
 				break;
 			}
 		case GameState.GameOver: {
