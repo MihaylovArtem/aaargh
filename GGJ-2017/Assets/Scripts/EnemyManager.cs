@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour {
 
 	private System.Random generator;
 	public float radius = 100f;
+	static public bool allWavesCompleted = false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,7 @@ public class EnemyManager : MonoBehaviour {
 	}
 
 	public IEnumerator SpawnLevel(int enemyCount, int level, int waves, int currentWave, float delay) {
+		allWavesCompleted = false;
 		currentEnemySpeed = startEnemySpeed * (1 + (level - 1) / 10.0f);
 		generator = new System.Random ();
 		List<GameObject> monstersPool = new List<GameObject> ();
@@ -47,7 +49,7 @@ public class EnemyManager : MonoBehaviour {
 			enemy.transform.localScale += new Vector3 (GetRandomNumber (0.8, 1.2), GetRandomNumber (0.8, 1.5), 0);
 		} else {
 			for (int i = 0; i < enemyCount; i++) {
-				var index = Random.Range (0, monstersPool.Count + 1);
+				var index = Random.Range (0, monstersPool.Count);
 				var enemy = Instantiate (monstersPool [index]) as GameObject;
 				float angle = (float)generator.NextDouble () * 2.0f * Mathf.PI;
 				enemy.transform.position = new Vector3 (Mathf.Cos (angle) * radius, 0f, Mathf.Sin (angle) * radius);
@@ -57,7 +59,10 @@ public class EnemyManager : MonoBehaviour {
 		}
 		yield return new WaitForSeconds (delay);
 		if (currentWave != waves && GameManager.gameState == GameManager.GameState.Playing) {
+			Debug.Log ("Called wave " + (currentWave + 1).ToString ());
 			StartCoroutine (SpawnLevel (enemyCount, level, waves, currentWave + 1, delay));
+		} else {
+			allWavesCompleted = true;
 		}
 	}
 

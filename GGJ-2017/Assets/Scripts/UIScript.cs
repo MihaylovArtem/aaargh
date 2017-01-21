@@ -17,7 +17,7 @@ public class UIScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void OnGUI () {
 		if (GameManager.gameState == GameManager.GameState.MainMenu) {
 			shoutToPlay.SetActive (true);
 			waveTextObject.SetActive (false);
@@ -35,6 +35,17 @@ public class UIScript : MonoBehaviour {
 			arghTextObject.SetActive (false);
 			waveTextObject.SetActive (true);
 			waveText.text = "Wave " + GameManager.level;
+
+			var alpha = waveText.color.a - (Time.deltaTime / 2000f);
+			if (alpha < 0) {
+				alpha = 0;
+			}
+			Debug.Log (alpha.ToString ());
+			waveText.color -= new Color(waveText.color.r, waveText.color.g, waveText.color.b, alpha);
 		}
+	}
+
+	public void ShowWaveText() {
+		waveText.color = new Color(waveText.color.r, waveText.color.g, waveText.color.b, 1);
 	}
 }

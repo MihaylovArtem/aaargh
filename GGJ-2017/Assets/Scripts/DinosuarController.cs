@@ -49,6 +49,5 @@ public class DinosuarController : MonoBehaviour {
 		cloneWave.transform.position = new Vector3 (transform.position.x, transform.position.y-0.2f, transform.position.z);
 		cloneWave.transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x-100, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z-90));
 		cloneWave.GetComponent <Rigidbody> ().velocity = transform.forward * waveSpeed;
-		Debug.Log (waveSpeed.ToString ());
 	}
 }

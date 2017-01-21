@@ -35,7 +35,6 @@ public class GrassScript : MonoBehaviour {
 		startingRotation = transform.rotation;
 		rotatedRightRotation.eulerAngles = transform.rotation.eulerAngles - new Vector3 (0, 60, 0);
 		rotatedLeftRotation.eulerAngles = transform.rotation.eulerAngles + new Vector3 (0, 60, 0);
-		Debug.Log (rotatedLeftRotation + " " + startingRotation);
 		lastRotation = startingRotation;
 	}
 	

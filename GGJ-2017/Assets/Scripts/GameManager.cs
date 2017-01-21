@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour {
 	public GameObject breathingObject;
 	public GameObject progressBar;
 	private float progressBarTimer = 0;
-	private int startEnemiesCount = 6;
+	private int startEnemiesCount = 5;
+
+	public UIScript uiScript;
 
 	EnemyManager enemyManager;
 
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour {
 	void CheckEnemies() {
 		if (gameState == GameState.Playing) {
 			var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-			if (enemies.Length == 0) {
+			if (enemies.Length == 0 && EnemyManager.allWavesCompleted) {
 				Breathe ();
 			}
 		}
@@ -59,8 +61,10 @@ public class GameManager : MonoBehaviour {
 		progressBar.transform.localScale = new Vector3 (1, 1, 1);
 		progressBar.SetActive (false);
 		breathingObject.SetActive (false);
+		gameState = GameState.Playing;
+		uiScript.ShowWaveText ();
 		if (level == 1 || level == 2 || level == 4) {
-			StartCoroutine (enemyManager.SpawnLevel (startEnemiesCount + level / 2, level, level + 1, 0, 4f));
+			StartCoroutine (enemyManager.SpawnLevel (startEnemiesCount + level, level, level + 1, 0, 6f + level));
 		} else if (level == 3) {
 			StartCoroutine (enemyManager.SpawnLevel (1, level, 20, 0, 0.5f));
 		} else if (level == 5) {

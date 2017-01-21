@@ -191,8 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1951c2cd95ffd0a4cac1c7b0dd573ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 500
-  maxHitPoints: 500
+  maxHitPoints: 300
   enemySingleMultiplier: 0.5
   hpBar: {fileID: 1343837881607986}
 --- !u!224 &224938978274823778

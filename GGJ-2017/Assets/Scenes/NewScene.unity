@@ -182,7 +182,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 321374599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ef5966faea22644accd9fa79c73ab7, type: 3}
   m_Name: 
@@ -918,7 +918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307, y: 129}
+  m_AnchoredPosition: {x: 0, y: 180}
   m_SizeDelta: {x: 160, y: 37.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755029524
@@ -1035,8 +1035,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51139c53619a9c458c2f157cf4b4dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1040525545531612, guid: 3d47e8416a9be784984c652ed224e0fa,
+  enemy1Prefab: {fileID: 1830266979845678, guid: a96691ed8902da241a1e18d7b4b92655,
     type: 2}
+  enemy2Prefab: {fileID: 1341181195372742, guid: a0a536dd7baba7b4f8ffc525243726d9,
+    type: 2}
+  enemy3Prefab: {fileID: 1757063427125814, guid: c041e4f432391fd4582faa1df0659998,
+    type: 2}
+  enemy4Prefab: {fileID: 1162810796634326, guid: bad1d7d0e0a2b0d4886bb085b4975ee3,
+    type: 2}
+  bossPrefab: {fileID: 1345147326009066, guid: f3a63db468e5cb54c9957beaf8b84488, type: 2}
   radius: 40
 --- !u!114 &1861513068
 MonoBehaviour:
@@ -1052,6 +1059,7 @@ MonoBehaviour:
   progressBarTime: 0
   breathingObject: {fileID: 1541064490}
   progressBar: {fileID: 1684519732}
+  uiScript: {fileID: 610316133}
 --- !u!4 &1861513069
 Transform:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
-	public float hitPoints;
+	private float hitPoints;
 	public float maxHitPoints;
 	public float enemySingleMultiplier;
 	public GameObject hpBar;
@@ -43,11 +43,12 @@ public class EnemyScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.tag == "Bullet") {
-			hitPoints -= GameManager.damageByBullet;
 			if (hitPoints <= 0.0f) {
+				hitPoints = 0;
 				rigidbodyComponent.AddForce (gameObject.transform.forward * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -4);
 				Invoke ("DestroySelf", 5.0f);
 			} else {
+				hitPoints -= GameManager.damageByBullet;
 				rigidbodyComponent.AddForce (gameObject.transform.forward * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -3);
 				Invoke ("ReturnPreviousForce", 0.3f);
 			}

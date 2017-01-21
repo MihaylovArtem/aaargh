@@ -89,7 +89,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1757063427125814}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -191,8 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1951c2cd95ffd0a4cac1c7b0dd573ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 250
-  maxHitPoints: 250
+  maxHitPoints: 150
   enemySingleMultiplier: 1
   hpBar: {fileID: 1245038959403686}
 --- !u!224 &224106053759140972
