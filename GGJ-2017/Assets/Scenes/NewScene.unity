@@ -182,7 +182,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 321374599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ef5966faea22644accd9fa79c73ab7, type: 3}
   m_Name: 
@@ -514,7 +514,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 409249726d822406681bfcd770e3e630, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 409249726d822406681bfcd770e3e630, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -684,7 +684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -88}
+  m_AnchoredPosition: {x: 0, y: -13}
   m_SizeDelta: {x: 400.85, y: 69.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1541064490
@@ -697,6 +697,7 @@ GameObject:
   - component: {fileID: 1541064491}
   - component: {fileID: 1541064493}
   - component: {fileID: 1541064492}
+  - component: {fileID: 1541064494}
   m_Layer: 5
   m_Name: Breathing...
   m_TagString: Untagged
@@ -742,7 +743,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 409249726d822406681bfcd770e3e630, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -763,6 +764,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1541064490}
+--- !u!132 &1541064494
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541064490}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 409249726d822406681bfcd770e3e630, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1684519732
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +797,7 @@ GameObject:
   - component: {fileID: 1684519733}
   - component: {fileID: 1684519735}
   - component: {fileID: 1684519734}
+  - component: {fileID: 1684519736}
   m_Layer: 5
   m_Name: progressbar
   m_TagString: Untagged
@@ -831,6 +856,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1684519732}
+--- !u!132 &1684519736
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1684519732}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 409249726d822406681bfcd770e3e630, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1755029521
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +889,7 @@ GameObject:
   - component: {fileID: 1755029523}
   - component: {fileID: 1755029522}
   - component: {fileID: 1755029524}
+  - component: {fileID: 1755029525}
   m_Layer: 5
   m_Name: Wave
   m_TagString: Untagged
@@ -869,7 +918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307, y: 129}
+  m_AnchoredPosition: {x: 0, y: 180}
   m_SizeDelta: {x: 160, y: 37.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755029524
@@ -892,7 +941,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 409249726d822406681bfcd770e3e630, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -907,6 +956,29 @@ MonoBehaviour:
   m_Text: 'Wave 1
 
 '
+--- !u!132 &1755029525
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1755029521}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 409249726d822406681bfcd770e3e630, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1861513064
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,8 +1035,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51139c53619a9c458c2f157cf4b4dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1040525545531612, guid: 3d47e8416a9be784984c652ed224e0fa,
+  enemy1Prefab: {fileID: 1830266979845678, guid: a96691ed8902da241a1e18d7b4b92655,
     type: 2}
+  enemy2Prefab: {fileID: 1341181195372742, guid: a0a536dd7baba7b4f8ffc525243726d9,
+    type: 2}
+  enemy3Prefab: {fileID: 1757063427125814, guid: c041e4f432391fd4582faa1df0659998,
+    type: 2}
+  enemy4Prefab: {fileID: 1162810796634326, guid: bad1d7d0e0a2b0d4886bb085b4975ee3,
+    type: 2}
+  bossPrefab: {fileID: 1345147326009066, guid: f3a63db468e5cb54c9957beaf8b84488, type: 2}
   radius: 40
 --- !u!114 &1861513068
 MonoBehaviour:
@@ -980,6 +1059,7 @@ MonoBehaviour:
   progressBarTime: 0
   breathingObject: {fileID: 1541064490}
   progressBar: {fileID: 1684519732}
+  uiScript: {fileID: 610316133}
 --- !u!4 &1861513069
 Transform:
   m_ObjectHideFlags: 0
