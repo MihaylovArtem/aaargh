@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour {
 	private Rigidbody rigidbodyComponent;
 	private System.Random generator;
 	private int monsterType;
+	private float startingXScale = 1f;
 
 	private bool isBoss;
 
@@ -23,12 +24,13 @@ public class EnemyScript : MonoBehaviour {
 		force.Normalize ();
 		rigidbodyComponent = gameObject.GetComponent<Rigidbody> ();
 		rigidbodyComponent.AddForce (enemySingleMultiplier * force*EnemyManager.currentEnemySpeed);
+		startingXScale = hpBar.transform.localScale.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		hpBar.transform.position = new Vector3 (gameObject.transform.position.x, hpBar.transform.position.y, gameObject.transform.position.z);
-		hpBar.transform.localScale = new Vector3 (hitPoints / maxHitPoints, 0.1f, 0.1f);
+		hpBar.transform.localScale = new Vector3 (hitPoints / maxHitPoints * startingXScale, 0.1f, 0.1f);
 		if (isBoss) {
 			//Boss mechanics
 		}
