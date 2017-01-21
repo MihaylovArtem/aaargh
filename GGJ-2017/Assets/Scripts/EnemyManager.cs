@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour {
 	
 	public static float currentEnemySpeed;
-	public const float startEnemySpeed = 50;
+	public const float startEnemySpeed = 100f;
 	public GameObject enemyPrefab;
 
 	private System.Random generator;

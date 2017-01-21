@@ -7,6 +7,10 @@ public class GrassScript : MonoBehaviour {
 
 	bool needRotation = false;
 	bool rotateToRight = false;
+	Quaternion lastRotation;
+	Quaternion startingRotation;
+	Quaternion rotatedRightRotation;
+	Quaternion rotatedLeftRotation;
 	float rotationTimer = 1f;
 	private float rotationAngle = Mathf.PI/3f;
 	int numberOfCollisions;
@@ -27,14 +31,25 @@ public class GrassScript : MonoBehaviour {
         {
             var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[generator.Next(sprites.Count())];
-        }          
+        }
+		startingRotation = transform.rotation;
+		rotatedRightRotation.eulerAngles = transform.rotation.eulerAngles - new Vector3 (0, 60, 0);
+		rotatedLeftRotation.eulerAngles = transform.rotation.eulerAngles + new Vector3 (0, 60, 0);
+		Debug.Log (rotatedLeftRotation + " " + startingRotation);
+		lastRotation = startingRotation;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (rotationTimer < 0.4f) {
-			rotationTimer += Time.deltaTime;
-			transform.RotateAround (transform.position, Vector3.down, (rotateToRight ? -1 : 1) * (needRotation ? -1 : 1) * 100 * Time.deltaTime);
+		rotationTimer += Time.deltaTime;
+		if (needRotation) {
+			if (rotateToRight) {
+				transform.rotation = Quaternion.Lerp (lastRotation, rotatedRightRotation, rotationTimer * 4f);
+			} else {
+				transform.rotation = Quaternion.Lerp (lastRotation, rotatedLeftRotation, rotationTimer * 4f);
+			}
+		} else {
+			transform.rotation = Quaternion.Lerp (lastRotation, startingRotation, rotationTimer);
 		}
 	}
 
@@ -48,7 +63,6 @@ public class GrassScript : MonoBehaviour {
 		Debug.Log ("Trigger Enter");
 		if (other.tag == "Enemy") {
 			numberOfCollisions++;
-			rotationTimer = 0;
 			var otherAngle = GetAngleFromBase (other.transform.position);
 			var grassAngle = GetAngleFromBase (transform.position);
 			if (otherAngle > grassAngle)
@@ -56,6 +70,10 @@ public class GrassScript : MonoBehaviour {
 			else
 				rotateToRight = false;
 			Debug.Log (otherAngle.ToString () + " other and grass " + grassAngle.ToString ());
+			if (!needRotation) {
+				lastRotation = transform.rotation;
+				rotationTimer = 0;
+			}
 			needRotation = true;
 		}
     }
@@ -64,8 +82,11 @@ public class GrassScript : MonoBehaviour {
 	{
 		if (other.tag == "Enemy") {
 			numberOfCollisions--;
+			if (numberOfCollisions == 0){
+				lastRotation = transform.rotation;
+				rotationTimer = 0;
+			}
 			needRotation = false;
-			rotationTimer = 0;
 		}
     }
 }
