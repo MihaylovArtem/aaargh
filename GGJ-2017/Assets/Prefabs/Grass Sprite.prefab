@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1307642323083474}
   m_LocalRotation: {x: -0, y: -0.6285007, z: -0, w: 0.7778091}
   m_LocalPosition: {x: 42.54, y: -2.15, z: -8.455004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,7 +70,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 6d8fa5bb98f85ca4fa4ed937d5ae7781, type: 3}
+  - {fileID: 21300000, guid: c70438c5f6ad0421d83d338ff4de3717, type: 3}
+  - {fileID: 21300000, guid: 5e47bdcc8578542d6912109177d6ff60, type: 3}
+  - {fileID: 21300000, guid: 9e3dd71ee563a4ed3a168119dfba2739, type: 3}
+  - {fileID: 21300000, guid: 040d8287f873447679241ef1075f7e15, type: 3}
+  - {fileID: 21300000, guid: 6b97870b038644d03a6c6d8e1f63f42c, type: 3}
 --- !u!135 &135805558775286798
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -96,7 +100,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ddfce08fdb76f42dcbaa82e6eedfd3bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
