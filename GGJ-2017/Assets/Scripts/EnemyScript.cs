@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
-	float hitPoints = 100.0f;
+	float hitPoints;
+	const float maxHitPoints = 100.0f;
+	public GameObject hpBar;
 
 	// Use this for initialization
 	void Start () {
 		Vector3 force = -(gameObject.transform.position - new Vector3 (0, 0, 0));
 		force.Normalize ();
+		hitPoints = maxHitPoints;
 		gameObject.GetComponent<Rigidbody>().AddForce (force*EnemyManager.currentEnemySpeed);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		hpBar.transform.localScale = new Vector3 (hitPoints / maxHitPoints, 0.1f, 0.1f);
 	}
 
 	void OnTriggerEnter(Collider collider) {
