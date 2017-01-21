@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
+	float hitPoints = 100.0f;
+
+
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition (Vector3.forward, new Vector3 (0, 0, 0));
+		Vector3 force = (gameObject.transform.position - new Vector3 (0, 0, 0));
+		force.Normalize ();
+		gameObject.GetComponent<Rigidbody> ().AddForce (-50*force);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "Bullet") {
+			hitPoints -= GameManager.damageByBullet;
+			Debug.Log (hitPoints);
+			if (hitPoints <= 0.0f) {
+				//Runaway, runaway baby!
+			}
+		}
 	}
 }
