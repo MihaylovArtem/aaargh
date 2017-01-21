@@ -6,7 +6,7 @@ public class DinosuarController : MonoBehaviour {
 
 	public GameObject wavePrefab;
 	[HideInInspector]
-	public float waveSpeed = 10f;
+	public float waveSpeed = 0.1f;
 	[HideInInspector]
 	public float minVolume = 0.1f;
 	[HideInInspector]
@@ -46,8 +46,8 @@ public class DinosuarController : MonoBehaviour {
 
 	void ShootWave() {
 		var cloneWave = Instantiate (wavePrefab) as GameObject;
-		cloneWave.transform.position = this.transform.position;
-		cloneWave.transform.rotation = this.transform.rotation;
-		cloneWave.GetComponent <Rigidbody> ().velocity = this.transform.forward * waveSpeed;
+		cloneWave.transform.position = new Vector3 (transform.position.x, transform.position.y-0.2f, transform.position.z);
+		cloneWave.transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x-100, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z-90));
+		cloneWave.GetComponent <Rigidbody> ().velocity = transform.forward * waveSpeed;
 	}
 }
