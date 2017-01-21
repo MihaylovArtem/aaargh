@@ -6,15 +6,15 @@ public class DinosuarController : MonoBehaviour {
 
 	public GameObject wavePrefab;
 	[HideInInspector]
-	public float waveSpeed = 0.1f;
+	float waveSpeed = 20f;
 	[HideInInspector]
-	public float minVolume = 0.1f;
+	float minVolume = 0.1f;
 	[HideInInspector]
-	public float maxVolume = 0.5f;
+	float maxVolume = 0.5f;
 	[HideInInspector]
-	public float maxShootDelay = 4.0f;
+	float maxShootDelay = 4.0f;
 	[HideInInspector]
-	public float maxShootDelayDivider = 20.0f;
+	float maxShootDelayDivider = 20.0f;
 	private float timer = 0.0f;
 
 	// Use this for initialization
@@ -49,5 +49,6 @@ public class DinosuarController : MonoBehaviour {
 		cloneWave.transform.position = new Vector3 (transform.position.x, transform.position.y-0.2f, transform.position.z);
 		cloneWave.transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x-100, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z-90));
 		cloneWave.GetComponent <Rigidbody> ().velocity = transform.forward * waveSpeed;
+		Debug.Log (waveSpeed.ToString ());
 	}
 }

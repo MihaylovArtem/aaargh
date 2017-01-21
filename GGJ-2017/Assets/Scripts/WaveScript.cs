@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveScript : MonoBehaviour {
 
 	public GameObject particles;
-	public float lifetime = 1.0f;
+	float lifetime = 2.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,7 @@ public class WaveScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.localScale += new Vector3(Time.deltaTime*2, Time.deltaTime*5, 0);
+		transform.localScale += new Vector3(Time.deltaTime*10, Time.deltaTime*10, 0);
 	}
 
 	void DestroySelf() {
