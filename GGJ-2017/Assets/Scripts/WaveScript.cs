@@ -21,9 +21,12 @@ public class WaveScript : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 
-	void OnCollisionEnter(Collision collision) {
-		var particlesClone = Instantiate (particles) as GameObject;
-		particlesClone.transform.position = this.transform.position;
-		DestroySelf ();
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Plane" || other.tag == "Enemy") {
+
+			var particlesClone = Instantiate (particles) as GameObject;
+			particlesClone.transform.position = this.transform.position;
+			DestroySelf ();
+		}
 	}
 }

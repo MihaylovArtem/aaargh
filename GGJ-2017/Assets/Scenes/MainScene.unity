@@ -364,3 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavePrefab: {fileID: 1171013332675556, guid: 90d9b04f06bc743e698f5e6ca63a3a4a, type: 2}
   waveSpeed: 10
+  minVolume: 0.3
+  maxVolume: 1
+  maxShootDelay: 2
+  maxShootDelayDivider: 20
