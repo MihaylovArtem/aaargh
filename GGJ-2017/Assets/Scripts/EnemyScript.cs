@@ -6,7 +6,6 @@ public class EnemyScript : MonoBehaviour {
 
 	float hitPoints = 100.0f;
 
-
 	// Use this for initialization
 	void Start () {
 		Vector3 force = (gameObject.transform.position - new Vector3 (0, 0, 0));
@@ -19,13 +18,19 @@ public class EnemyScript : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.tag == "Bullet") {
+	void OnTriggerEnter(Collider collider) {
+		Debug.Log ("Trigger");
+		if (collider.gameObject.tag == "Bullet") {
 			hitPoints -= GameManager.damageByBullet;
 			Debug.Log (hitPoints);
 			if (hitPoints <= 0.0f) {
 				//Runaway, runaway baby!
+				DestroySelf();
 			}
 		}
+	}
+
+	void DestroySelf() {
+		Destroy (gameObject);
 	}
 }
