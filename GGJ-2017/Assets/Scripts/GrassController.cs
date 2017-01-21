@@ -16,8 +16,7 @@ public class GrassController : MonoBehaviour {
         var angle = 0f;
         var offset = Mathf.PI / grassCount * 2;
         generator = new System.Random();
-        for (int i = 0; i < grassCount; i++, angle += offset)
-        {
+        for (int i = 0; i < grassCount; i++, angle += offset) {
             var grass = Instantiate(grassObject) as GameObject;
             grass.transform.position = new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius);
             grass.transform.LookAt(Vector3.zero);

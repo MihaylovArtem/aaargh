@@ -11,7 +11,7 @@ public class EnemyScript : MonoBehaviour {
 	void Start () {
 		Vector3 force = (gameObject.transform.position - new Vector3 (0, 0, 0));
 		force.Normalize ();
-		gameObject.GetComponent<Rigidbody> ().AddForce (-50*force);
+		gameObject.GetComponent<Rigidbody> ().AddForce (-200*force);
 	}
 	
 	// Update is called once per frame
