@@ -579,6 +579,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &684419066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 684419068}
+  - component: {fileID: 684419067}
+  m_Layer: 0
+  m_Name: sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &684419067
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684419066}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: fbe9c1027d41f40729ff5360ddd0dc39, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &684419068
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684419066}
+  m_LocalRotation: {x: -0.13870741, y: -0.20167205, z: -0.028863799, w: 0.969152}
+  m_LocalPosition: {x: -11.1, y: 10.520858, z: 16.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: -16.29, y: -23.51, z: 0}
 --- !u!1 &881943152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,15 +1280,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51139c53619a9c458c2f157cf4b4dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1Prefab: {fileID: 1830266979845678, guid: a96691ed8902da241a1e18d7b4b92655,
+  enemy1Prefab: {fileID: 1413170127912730, guid: 1638239e77caa4df98c4596142a86431,
     type: 2}
-  enemy2Prefab: {fileID: 1341181195372742, guid: a0a536dd7baba7b4f8ffc525243726d9,
+  enemy2Prefab: {fileID: 1705524619553376, guid: a0a536dd7baba7b4f8ffc525243726d9,
     type: 2}
-  enemy3Prefab: {fileID: 1757063427125814, guid: c041e4f432391fd4582faa1df0659998,
+  enemy3Prefab: {fileID: 1486466253375418, guid: c041e4f432391fd4582faa1df0659998,
     type: 2}
-  enemy4Prefab: {fileID: 1162810796634326, guid: bad1d7d0e0a2b0d4886bb085b4975ee3,
+  enemy4Prefab: {fileID: 1701544185333654, guid: bad1d7d0e0a2b0d4886bb085b4975ee3,
     type: 2}
-  bossPrefab: {fileID: 1345147326009066, guid: f3a63db468e5cb54c9957beaf8b84488, type: 2}
+  bossPrefab: {fileID: 1489502925428246, guid: 4a02c1065562843daa68b9ed9dd95a8d, type: 2}
   radius: 40
 --- !u!114 &1861513068
 MonoBehaviour:

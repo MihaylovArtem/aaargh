@@ -26,11 +26,10 @@ public class GrassScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        var generator = new System.Random();
         foreach (var sprite in sprites)
         {
             var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = sprites[generator.Next(sprites.Count())];
+			spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count()-1)];
         }
 		startingRotation = transform.rotation;
 		rotatedRightRotation.eulerAngles = transform.rotation.eulerAngles - new Vector3 (0, 60, 0);
