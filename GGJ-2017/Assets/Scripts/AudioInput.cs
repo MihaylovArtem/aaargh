@@ -49,7 +49,7 @@ public class AudioInput : MonoBehaviour {
 		// levelMax equals to the highest normalized value power 2, a small number because < 1
 		// pass the value to a static var so we can access it from anywhere
 		MicLoudness = LevelMax ();
-		Debug.Log (MicLoudness.ToString("00.00"));
+		//Debug.Log (MicLoudness.ToString("00.00"));
 	}
 
 	bool _isInitialized;
