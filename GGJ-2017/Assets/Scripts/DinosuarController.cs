@@ -31,7 +31,7 @@ public class DinosuarController : MonoBehaviour {
 		var message = "Loudness = " + currentLoudness.ToString ("00.00") + ", modifiedLoudness = " + modifiedLoudness.ToString ("00.00") + 
 			", currentDelay = " + currentDelay.ToString ("00.00") + 
 			", timer = " + timer.ToString ("00.00");
-		Debug.Log (message);
+		//Debug.Log (message);
 		if (modifiedLoudness > minVolume) {
 			if (timer > currentDelay) {
 				timer = 0;

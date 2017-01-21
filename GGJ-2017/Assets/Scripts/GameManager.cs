@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	public static int level;
 	public static GameState gameState;
 	public static float breathingTime;
+	public static float damageByBullet = 10.0f;
 
 	EnemyManager enemyManager;
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour {
 	void CheckEnemies() {
 		if (gameState == GameState.Playing) {
 			var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-			Debug.Log (enemies.Length);
+			//Debug.Log (enemies.Length);
 			if (enemies.Length == 0) {
 				Breathe ();
 			}
