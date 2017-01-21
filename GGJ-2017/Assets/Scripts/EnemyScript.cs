@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.tag == "Bullet") {
+			gameObject.GetComponent <Rigidbody>().AddForce (gameObject.transform.forward * (-100f));
 			hitPoints -= GameManager.damageByBullet;
 			Debug.Log (hitPoints);
 			if (hitPoints <= 0.0f) {
