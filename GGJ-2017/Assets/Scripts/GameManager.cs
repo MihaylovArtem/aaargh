@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject progressBar;
 	private float progressBarTimer = 0.0f;
 	private float newGameLoudnessTimer = 0.0f;
-	private int startEnemiesCount = 5;
+	private int startEnemiesCount = 3;
 	public GameObject newGameProgressBar;
 	public UIScript uiScript;
 
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	void GameOver() {
+	static public void GameOver() {
 		highscore = GameManager.level;
 		GameManager.level = 1;
 		PlayerPrefs.SetInt ("highscore", highscore);
