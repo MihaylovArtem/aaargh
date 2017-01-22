@@ -10,14 +10,11 @@ public class GameManager : MonoBehaviour {
 		Breathing,
 		Win
 	}
-<<<<<<< HEAD
 	public DinosuarController playerScript;
-=======
->>>>>>> ce301bb9fc6dd60c08c669c9337ed85fbc0218b3
 	public static int level = 1;
 	public static GameState gameState;
 	public static float breathingTime;
-	public static float damageByBullet = 10.0f;
+	public static int damageByBullet = 10;
 	public static int highscore = 0;
 	public float progressBarTime;
 	public GameObject breathingObject;

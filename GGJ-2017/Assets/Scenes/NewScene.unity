@@ -423,7 +423,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 458866237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -609,8 +609,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684419066}
   m_LocalRotation: {x: -0.13870741, y: -0.20167205, z: -0.028863799, w: 0.969152}
-  m_LocalPosition: {x: -11.1, y: 10.520858, z: 16.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -16.2, y: 21.9, z: 22.9}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -659,6 +659,50 @@ Prefab:
       propertyPath: camera
       value: 
       objectReference: {fileID: 173629658}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557025515404780, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557025515404780, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692072311529294, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557025515404780, guid: 252da64378e4247ff97b1a333973d585, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 252da64378e4247ff97b1a333973d585, type: 2}
   m_IsPrefabParent: 0
@@ -749,7 +793,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9069ff3d504c93343bc5c9a6d99a845b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.34
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9069ff3d504c93343bc5c9a6d99a845b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1330,7 +1374,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1408,7 +1452,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1861513064
 GameObject:
@@ -1424,6 +1468,7 @@ GameObject:
   - component: {fileID: 1861513065}
   - component: {fileID: 1861513071}
   - component: {fileID: 1861513070}
+  - component: {fileID: 1861513072}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1542,3 +1587,22 @@ MonoBehaviour:
   grassObject: {fileID: 1718467930870140, guid: fbb597d47286f4852a4addb4f848f174,
     type: 2}
   minRadius: 24
+--- !u!114 &1861513072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1861513064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ceb022736c4d8143b3fce6563c88d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainObject: {fileID: 1107418527346424, guid: 94d91f27feed9584a8c88a333bbad4f1,
+    type: 2}
+  sprites:
+  - {fileID: 21300000, guid: 48750396f3a9642aeaa8482b38378f17, type: 3}
+  - {fileID: 21300000, guid: e3f1dcadac0ba486dbe8184200f59f32, type: 3}
+  - {fileID: 21300000, guid: c3eed1b905385469f9b3f1bc0840eb9a, type: 3}
+  - {fileID: 21300000, guid: 3a31962d10d0e42ee966d502e905b9b4, type: 3}
+  numberOfObjects: 50

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
-	private float hitPoints;
-	public float maxHitPoints;
+	private int hitPoints;
+	public int maxHitPoints;
 	public float enemySingleMultiplier;
 	public GameObject hpBar;
 	private Rigidbody rigidbodyComponent;
@@ -35,9 +35,14 @@ public class EnemyScript : MonoBehaviour {
 		forwardVector = transform.forward;
 
         fxAudio.pitch = Random.Range(0.8f, 1.2f);
-        fxAudio.volume = stepVolume;
-        fxAudio.Play();
+		float randomDelay = Random.Range (0, 2f);
+		float randomVolume = Random.Range (0.2f, 0.3f);
+		Invoke ("StartAudio", randomDelay );
     }
+
+	void StartAudio() {
+		fxAudio.Play();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,7 +55,13 @@ public class EnemyScript : MonoBehaviour {
 			transform.Rotate (new Vector3 (0, direction * rotationSpeed * Time.deltaTime, 0));
 		}
 		hpBar.transform.position = new Vector3 (gameObject.transform.position.x, hpBar.transform.position.y, gameObject.transform.position.z);
-		hpBar.transform.localScale = new Vector3 (hitPoints / maxHitPoints * startingXScale, 0.1f, 0.1f);
+		var barScale = 0f;
+		if (hitPoints > 0) {
+			
+			barScale = (float)hitPoints / (float)maxHitPoints * startingXScale;
+		} 
+		hpBar.transform.localScale = new Vector3 (barScale, 0.1f, 0.1f);
+
 		if (isBoss) {
 			//Boss mechanics
 		}
@@ -59,21 +70,20 @@ public class EnemyScript : MonoBehaviour {
 	void MakeBoss() {
 		isBoss = true;
 		//Boss sprite;
-		maxHitPoints = 1000.0f;
-		hitPoints = 1000.0f;
+		maxHitPoints = 1000;
+		hitPoints = 1000;
 	}
 
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.tag == "Bullet") {
-			if (hitPoints <= 0.0f) {
+			hitPoints -= GameManager.damageByBullet;
+			rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -3);
+			Invoke ("ReturnPreviousForce", 0.3f);
+			if (hitPoints <= 0) {
 				hitPoints = 0;
 				rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -4);
 				Invoke ("DestroySelf", 5.0f);
-			} else {
-				hitPoints -= GameManager.damageByBullet;
-				rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -3);
-				Invoke ("ReturnPreviousForce", 0.3f);
-			}
+			} 
 		}
 	}
 

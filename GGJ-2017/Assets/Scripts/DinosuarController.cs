@@ -29,7 +29,7 @@ public class DinosuarController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gamePoint = camera.transform.position;
+		gamePoint = new Vector3( camera.transform.position.x, 0, camera.transform.position.z);
 		startingPoint = transform.position;
 		SetStarted (false);
 	}
@@ -91,7 +91,7 @@ public class DinosuarController : MonoBehaviour {
 	void ShootWave() {
 		if (GameManager.gameState == GameManager.GameState.Playing) {
 			var cloneWave = Instantiate (wavePrefab) as GameObject;
-			cloneWave.transform.position = new Vector3 (camera.transform.position.x, camera.transform.position.y - 0.2f, camera.transform.position.z);
+			cloneWave.transform.position = new Vector3 (camera.transform.position.x, camera.transform.position.y - 0.8f, camera.transform.position.z);
 			cloneWave.transform.rotation = Quaternion.Euler (new Vector3 (transform.rotation.eulerAngles.x - 100, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z - 90));
 			cloneWave.GetComponent <Rigidbody> ().velocity = transform.forward * waveSpeed;
 		}
