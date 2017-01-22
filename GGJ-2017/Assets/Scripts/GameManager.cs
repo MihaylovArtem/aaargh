@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 		Breathing,
 		Win
 	}
-	public static int level = 1;
+	public static int level = 5;
 	public static GameState gameState;
 	public static float breathingTime;
 	public static float damageByBullet = 10.0f;
@@ -39,7 +39,11 @@ public class GameManager : MonoBehaviour {
 		if (gameState == GameState.Playing) {
 			var enemies = GameObject.FindGameObjectsWithTag("Enemy");
 			if (enemies.Length == 0 && EnemyManager.allWavesCompleted) {
-				Breathe ();
+				if (level < 5) {
+					Breathe ();
+				} else {
+					Win ();
+				}
 			}
 		}
 		Invoke("CheckEnemies", 1.0f);
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour {
 		} else if (level == 3) {
 			StartCoroutine (enemyManager.SpawnLevel (1, level, 20, 0, 0.5f));
 		} else if (level == 5) {
-			StartCoroutine (enemyManager.SpawnLevel (3, level, 100, 0, 3f));
+			StartCoroutine (enemyManager.SpawnLevel (3, level, 100, 0, 10f));
 		}
 	}
 
@@ -76,6 +80,15 @@ public class GameManager : MonoBehaviour {
 		GameManager.level = 1;
 		PlayerPrefs.SetInt ("highscore", highscore);
 		PlayerPrefs.Save ();
+	}
+
+	public void Win() {
+		gameState = GameState.Win;
+		Invoke ("GoToMainMenu", 3.0f);
+	}
+
+	void GoToMainMenu() {
+		gameState = GameState.MainMenu;   
 	}
 
 	// Update is called once per frame

@@ -12,6 +12,7 @@ public class UIScript : MonoBehaviour {
 	public Text arghText;
 	public Text gameOverText;
 	public GameObject gameOverTextObject;
+	public GameObject winTextObject;
 
 	public float gameOverTimer = 10.0f;
 
@@ -33,6 +34,7 @@ public class UIScript : MonoBehaviour {
 		if (GameManager.gameState == GameManager.GameState.MainMenu) {
 			shoutToPlay.SetActive (true);
 			waveTextObject.SetActive (false);
+			winTextObject.SetActive (false);
 			arghTextObject.SetActive (true);
 			gameOverTextObject.SetActive (false);
 			string hs = "A";
@@ -45,6 +47,7 @@ public class UIScript : MonoBehaviour {
 
 		if (GameManager.gameState == GameManager.GameState.Playing) {
 			shoutToPlay.SetActive (false);
+			winTextObject.SetActive (false);
 			arghTextObject.SetActive (false);
 			waveTextObject.SetActive (true);
 			gameOverTextObject.SetActive (false);
@@ -60,6 +63,7 @@ public class UIScript : MonoBehaviour {
 
 		if (GameManager.gameState == GameManager.GameState.GameOver) {
 			shoutToPlay.SetActive (false);
+			winTextObject.SetActive (false);
 			arghTextObject.SetActive (false);
 			waveTextObject.SetActive (false);
 			gameOverTextObject.SetActive (true);
@@ -69,6 +73,14 @@ public class UIScript : MonoBehaviour {
 				gameOverTimer = 10.0f;
 				GameManager.gameState = GameManager.GameState.MainMenu;
 			}
+		}
+
+		if (GameManager.gameState == GameManager.GameState.Win) {
+			shoutToPlay.SetActive (false);
+			winTextObject.SetActive (true);
+			arghTextObject.SetActive (false);
+			waveTextObject.SetActive (false);
+			gameOverTextObject.SetActive (false);
 		}
 	}
 
