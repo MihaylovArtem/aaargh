@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour {
 		Breathing,
 		Win
 	}
+<<<<<<< HEAD
 	public DinosuarController playerScript;
+=======
+>>>>>>> ce301bb9fc6dd60c08c669c9337ed85fbc0218b3
 	public static int level = 1;
 	public static GameState gameState;
 	public static float breathingTime;
@@ -25,7 +28,9 @@ public class GameManager : MonoBehaviour {
 	public GameObject newGameProgressBar;
 	public UIScript uiScript;
 
-	EnemyManager enemyManager;
+    
+    public SoundManager soundManager;
+    EnemyManager enemyManager;
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +39,8 @@ public class GameManager : MonoBehaviour {
 		CheckEnemies ();
 		enemyManager = gameObject.GetComponent<EnemyManager> ();
 		highscore = PlayerPrefs.GetInt ("highscore");
-	}
+        if (!soundManager.IsPlaying) soundManager.SetMenuMusic();
+    }
 
 	void CheckEnemies() {
 		if (gameState == GameState.Playing) {
@@ -59,9 +65,18 @@ public class GameManager : MonoBehaviour {
 		breathingObject.SetActive (true);
 		GameManager.level++;
 		Invoke ("StartNewLevel", breathingTime);
+        soundManager.FadeInBattle();
 	}
 
 	void StartNewLevel() {
+        if (level == 1)
+        {
+            soundManager.SetBattleMusic();
+        }
+        else
+        {
+            soundManager.FadeOutBattle();
+        }
 		progressBar.transform.localScale = new Vector3 (1, 1, 1);
 		progressBar.SetActive (false);
 		breathingObject.SetActive (false);
@@ -93,7 +108,7 @@ public class GameManager : MonoBehaviour {
 
 	public void GoToMainMenu() {
 		gameState = GameState.MainMenu;
-//		playerScript.SetStarted (false);
+        soundManager.SetMenuMusic();
 	}
 
 	// Update is called once per frame
@@ -101,6 +116,7 @@ public class GameManager : MonoBehaviour {
 		progressBarTimer += Time.deltaTime;
 		switch (gameState) {
 		case GameState.MainMenu: {
+                
 				newGameProgressBar.SetActive (true);
 				newGameProgressBar.transform.localScale = new Vector3 (newGameLoudnessTimer / 2.0f, 1, 1);
 				if (AudioInput.MicLoudness > 0.3) {
@@ -135,7 +151,7 @@ public class GameManager : MonoBehaviour {
 				break;
 			}
 		case GameState.Playing: {
-				break;
+                    break;
 			}
 		}
 	}
