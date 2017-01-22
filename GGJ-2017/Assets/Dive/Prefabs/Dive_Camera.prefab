@@ -5,14 +5,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400000}
-  - component: {fileID: 2000000}
-  - component: {fileID: 12400000}
-  - component: {fileID: 9200000}
-  - component: {fileID: 8100000}
-  - component: {fileID: 6500000}
+  - 4: {fileID: 400000}
+  - 20: {fileID: 2000000}
+  - 124: {fileID: 12400000}
+  - 92: {fileID: 9200000}
+  - 81: {fileID: 8100000}
+  - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: Camera_right
   m_TagString: Untagged
@@ -25,14 +25,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400002}
-  - component: {fileID: 11400000}
-  - component: {fileID: 11417912}
-  - component: {fileID: 11427402}
-  - component: {fileID: 11414774}
-  - component: {fileID: 114023607908330936}
+  - 4: {fileID: 400002}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11417912}
+  - 114: {fileID: 11427402}
+  - 114: {fileID: 11414774}
   m_Layer: 0
   m_Name: Dive_Camera
   m_TagString: MainCamera
@@ -45,13 +44,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400004}
-  - component: {fileID: 2000002}
-  - component: {fileID: 12400002}
-  - component: {fileID: 9200002}
-  - component: {fileID: 6500002}
+  - 4: {fileID: 400004}
+  - 20: {fileID: 2000002}
+  - 124: {fileID: 12400002}
+  - 92: {fileID: 9200002}
+  - 65: {fileID: 6500002}
   m_Layer: 0
   m_Name: Camera_left
   m_TagString: Untagged
@@ -66,12 +65,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: .0299999993, y: .200000003, z: .200000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -79,14 +77,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.34, z: 0}
+  m_LocalPosition: {x: 0, y: 3.42954183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -94,12 +91,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -.0299999993, y: .200000003, z: .200000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -109,14 +105,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5
+    x: .5
     y: 0
-    width: 0.5
+    width: .5
     height: 1
-  near clip plane: 0.1
+  near clip plane: .100000001
   far clip plane: 5000
   field of view: 85
   orthographic: 0
@@ -128,12 +124,10 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
+  m_StereoSeparation: .0219999999
 --- !u!20 &2000002
 Camera:
   m_ObjectHideFlags: 1
@@ -143,14 +137,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.5
+    width: .5
     height: 1
-  near clip plane: 0.1
+  near clip plane: .100000001
   far clip plane: 5000
   field of view: 85
   orthographic: 0
@@ -162,12 +156,10 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
+  m_StereoSeparation: .0219999999
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -219,7 +211,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9db6421691659684d915086e04c493c2, type: 3}
   m_Name: 
@@ -246,7 +238,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf4bda8a209f8974f94a6b1d673d52fe, type: 3}
   m_Name: 
@@ -270,10 +262,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
-  max_offset: 0.002
+  max_offset: .00200000009
   cameraleft: {fileID: 2000002}
   cameraright: {fileID: 2000000}
   autoCorrectOffset: 1
+  debugMetrics: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
@@ -299,14 +292,4 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100002}
   m_IsPrefabParent: 1
---- !u!114 &114023607908330936
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ef5966faea22644accd9fa79c73ab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsExploded: 1

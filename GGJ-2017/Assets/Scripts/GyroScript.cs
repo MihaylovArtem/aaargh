@@ -34,7 +34,7 @@ public class GyroScript : MonoBehaviour {
 	{
 		transform.rotation = Input.gyro.attitude;
 		transform.Rotate( 0f, 0f, 180f, Space.Self ); // Swap "handedness" of quaternion from gyro.
-		transform.Rotate( 90f, -90f, 0f, Space.World ); // Rotate to make sense as a camera pointing out the back of your device.
+		transform.Rotate( 90f, 90f, 0f, Space.World ); // Rotate to make sense as a camera pointing out the back of your device.
 		appliedGyroYAngle = transform.eulerAngles.y; // Save the angle around y axis for use in calibration.
 	}
 
