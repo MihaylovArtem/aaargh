@@ -12,9 +12,15 @@ public class UIScript : MonoBehaviour {
 	public Text arghText;
 	public Text gameOverText;
 	public GameObject gameOverTextObject;
+	public Button vrButton;
+	public Sprite vrEnabledImage;
+	public Sprite vrDisabledImage;
+	public GameObject vrEnabledCamera;
+	public GameObject vrDisabledCamera;
 	public GameObject winTextObject;
 
 	public float gameOverTimer = 10.0f;
+	bool vrEnabled = false;
 
 	// Use this for initialization
 	void Start () {
@@ -86,5 +92,12 @@ public class UIScript : MonoBehaviour {
 
 	public void ShowWaveText() {
 		waveText.color = new Color(waveText.color.r, waveText.color.g, waveText.color.b, 1);
+	}
+
+	public void VRButtonTapped() {
+		vrEnabled = !vrEnabled;
+		vrButton.image.sprite = vrEnabled ? vrDisabledImage : vrDisabledImage;
+		vrEnabledCamera.SetActive (vrEnabled);
+		vrDisabledCamera.SetActive (!vrEnabled);
 	}
 }
