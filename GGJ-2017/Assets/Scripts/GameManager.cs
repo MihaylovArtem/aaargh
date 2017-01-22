@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 		Breathing,
 		Win
 	}
-	public static int level = 5;
+	public static int level = 1;
 	public static GameState gameState;
 	public static float breathingTime;
 	public static float damageByBullet = 10.0f;
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject newGameProgressBar;
 	public UIScript uiScript;
 
+    
     public SoundManager soundManager;
     EnemyManager enemyManager;
 
@@ -60,12 +61,17 @@ public class GameManager : MonoBehaviour {
 		breathingObject.SetActive (true);
 		GameManager.level++;
 		Invoke ("StartNewLevel", breathingTime);
+        soundManager.FadeInBattle();
 	}
 
 	void StartNewLevel() {
         if (level == 1)
         {
             soundManager.SetBattleMusic();
+        }
+        else
+        {
+            soundManager.FadeOutBattle();
         }
 		progressBar.transform.localScale = new Vector3 (1, 1, 1);
 		progressBar.SetActive (false);
@@ -94,8 +100,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void GoToMainMenu() {
-		gameState = GameState.MainMenu;   
-	}
+		gameState = GameState.MainMenu;
+        soundManager.SetMenuMusic();
+    }
 
 	// Update is called once per frame
 	void Update () {

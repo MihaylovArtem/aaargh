@@ -18,10 +18,13 @@ public class EnemyScript : MonoBehaviour {
 	float direction = 1;
 	float rotationSpeed = 90f;
 
+    public float stepVolume = 0.2f;
 	private bool isBoss;
+    private Random audioPitchGenerator = new Random();
+    public AudioSource fxAudio;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		hitPoints = maxHitPoints;
 		//Correct sprite
 		isBoss = false;
@@ -31,7 +34,11 @@ public class EnemyScript : MonoBehaviour {
 		rigidbodyComponent.AddForce (enemySingleMultiplier * force*EnemyManager.currentEnemySpeed);
 		startingXScale = hpBar.transform.localScale.x;
 		forwardVector = transform.forward;
-	}
+
+        fxAudio.pitch = Random.Range(0.8f, 1.2f);
+        fxAudio.volume = stepVolume;
+        fxAudio.Play();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -76,7 +83,8 @@ public class EnemyScript : MonoBehaviour {
 	}
 
 	void DestroySelf() {
-		Destroy (gameObject);
+        fxAudio.Stop();
+        Destroy (gameObject);
 	}
 
 	public void RunAway() {
