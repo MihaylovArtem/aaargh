@@ -20,7 +20,6 @@ public class EnemyScript : MonoBehaviour {
 
     public float stepVolume = 0.2f;
 	private bool isBoss;
-    private Random audioPitchGenerator = new Random();
     public AudioSource fxAudio;
 
     // Use this for initialization
