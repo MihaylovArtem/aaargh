@@ -48,13 +48,18 @@ public class EnemyManager : MonoBehaviour {
 			enemy.transform.LookAt (Vector3.zero);
 			enemy.transform.localScale += new Vector3 (GetRandomNumber (0.8, 1.2), GetRandomNumber (0.8, 1.5), 0);
 		} else {
-			for (int i = 0; i < enemyCount; i++) {
-				var index = Random.Range (0, monstersPool.Count);
-				var enemy = Instantiate (monstersPool [index]) as GameObject;
-				float angle = (float)generator.NextDouble () * 2.0f * Mathf.PI;
-				enemy.transform.position = new Vector3 (Mathf.Cos (angle) * radius, 0f, Mathf.Sin (angle) * radius);
-				enemy.transform.LookAt (Vector3.zero);
-				enemy.transform.localScale += new Vector3 (GetRandomNumber (0.8, 1.2), GetRandomNumber (0.8, 1.5), 0);
+			Debug.Log (GameObject.Find ("Boss(Clone)"));
+			if ((level == 5 && GameObject.Find ("Boss(Clone)")) || (level != 5)) {
+				for (int i = 0; i < enemyCount; i++) {
+					var index = Random.Range (0, monstersPool.Count);
+					var enemy = Instantiate (monstersPool [index]) as GameObject;
+					float angle = (float)generator.NextDouble () * 2.0f * Mathf.PI;
+					enemy.transform.position = new Vector3 (Mathf.Cos (angle) * radius, 0f, Mathf.Sin (angle) * radius);
+					enemy.transform.LookAt (Vector3.zero);
+					enemy.transform.localScale += new Vector3 (GetRandomNumber (0.8, 1.2), GetRandomNumber (0.8, 1.5), 0);
+				}
+			} else {
+				allWavesCompleted = true;
 			}
 		}
 		yield return new WaitForSeconds (delay);
