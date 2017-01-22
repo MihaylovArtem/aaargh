@@ -42,7 +42,7 @@ public class DinosuarController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			ShootWave ();
 		}
-		transform.rotation = Quaternion.Euler (0, transform.rotation.eulerAngles.y, 0);
+//		transform.rotation = Quaternion.Euler (0, transform.rotation.eulerAngles.y, 0);
 	}
 
 	void ShootWave() {
