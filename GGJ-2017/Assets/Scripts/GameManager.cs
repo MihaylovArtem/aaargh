@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject newGameProgressBar;
 	public UIScript uiScript;
 
-	EnemyManager enemyManager;
+    public SoundManager soundManager;
+    EnemyManager enemyManager;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +34,8 @@ public class GameManager : MonoBehaviour {
 		CheckEnemies ();
 		enemyManager = gameObject.GetComponent<EnemyManager> ();
 		highscore = PlayerPrefs.GetInt ("highscore");
-	}
+        if (!soundManager.IsPlaying) soundManager.SetMenuMusic();
+    }
 
 	void CheckEnemies() {
 		if (gameState == GameState.Playing) {
@@ -57,6 +59,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void StartNewLevel() {
+        if (level == 1)
+        {
+            soundManager.SetBattleMusic();
+        }
 		progressBar.transform.localScale = new Vector3 (1, 1, 1);
 		progressBar.SetActive (false);
 		breathingObject.SetActive (false);
@@ -83,6 +89,7 @@ public class GameManager : MonoBehaviour {
 		progressBarTimer += Time.deltaTime;
 		switch (gameState) {
 		case GameState.MainMenu: {
+                
 				newGameProgressBar.SetActive (true);
 				newGameProgressBar.transform.localScale = new Vector3 (newGameLoudnessTimer / 2.0f, 1, 1);
 				if (AudioInput.MicLoudness > 0.3) {
@@ -117,7 +124,7 @@ public class GameManager : MonoBehaviour {
 				break;
 			}
 		case GameState.Playing: {
-				break;
+                    break;
 			}
 		}
 	}
