@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour {
 		Breathing,
 		Win
 	}
-	public static int level = 5;
+	public DinosuarController playerScript;
+	public static int level = 1;
 	public static GameState gameState;
 	public static float breathingTime;
 	public static float damageByBullet = 10.0f;
@@ -73,6 +74,9 @@ public class GameManager : MonoBehaviour {
 		} else if (level == 5) {
 			StartCoroutine (enemyManager.SpawnLevel (3, level, 100, 0, 10f));
 		}
+		if (level == 1) {
+			playerScript.SetStarted (true);
+		}
 	}
 
 	static public void GameOver() {
@@ -87,8 +91,9 @@ public class GameManager : MonoBehaviour {
 		Invoke ("GoToMainMenu", 3.0f);
 	}
 
-	void GoToMainMenu() {
-		gameState = GameState.MainMenu;   
+	public void GoToMainMenu() {
+		gameState = GameState.MainMenu;
+//		playerScript.SetStarted (false);
 	}
 
 	// Update is called once per frame

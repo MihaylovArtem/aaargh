@@ -32,7 +32,6 @@ GameObject:
   - component: {fileID: 11417912}
   - component: {fileID: 11427402}
   - component: {fileID: 11414774}
-  - component: {fileID: 114893570853982898}
   - component: {fileID: 114023607908330936}
   m_Layer: 0
   m_Name: Dive_Camera
@@ -311,15 +310,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ef5966faea22644accd9fa79c73ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114893570853982898
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86391e57e1ec84c86ac37b93a1583cbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wavePrefab: {fileID: 1275562098849696, guid: bac02f239cf24484c9573f172a773513, type: 2}
