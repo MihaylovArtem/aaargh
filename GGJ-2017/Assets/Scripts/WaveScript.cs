@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveScript : MonoBehaviour {
 
 	public GameObject particles;
-	float lifetime = 2.0f;
+	float lifetime = 3.0f;
 
 	// Use this for initialization
 	void Start () {

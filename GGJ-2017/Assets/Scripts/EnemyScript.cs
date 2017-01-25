@@ -78,7 +78,7 @@ public class EnemyScript : MonoBehaviour {
 		if (collider.gameObject.tag == "Bullet") {
 			hitPoints -= GameManager.damageByBullet;
 			rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -3);
-			Invoke ("ReturnPreviousForce", 0.3f);
+			Invoke ("ReturnPreviousForce", 0.2f);
 			if (hitPoints <= 0) {
 				hitPoints = 0;
 				rigidbodyComponent.AddForce (forwardVector * enemySingleMultiplier * EnemyManager.currentEnemySpeed * -4);

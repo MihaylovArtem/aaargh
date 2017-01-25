@@ -335,16 +335,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114567559308747894, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
-        type: 2}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1861513068}
     - target: {fileID: 223221853084690542, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 408402062}
+    - target: {fileID: 114567559308747894, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1861513068}
     - target: {fileID: 114567559308747894, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
         type: 2}
       propertyPath: vrOnCamera
@@ -355,38 +355,9 @@ Prefab:
       propertyPath: vrOffCamera
       value: 
       objectReference: {fileID: 408402057}
-    - target: {fileID: 1578791212408612, guid: d8e9b17de1d324ddba6589f9bc9cc42a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857640902444628, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 183
-      objectReference: {fileID: 0}
-    - target: {fileID: 224511475992180072, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 334
-      objectReference: {fileID: 0}
-    - target: {fileID: 224511475992180072, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762583129333100, guid: d8e9b17de1d324ddba6589f9bc9cc42a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114437321629678192, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 610316133}
-    - target: {fileID: 114437321629678192, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: vrButtonTapped
+    - target: {fileID: 1272319709354152, guid: d8e9b17de1d324ddba6589f9bc9cc42a, type: 2}
+      propertyPath: m_Name
+      value: vrButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8e9b17de1d324ddba6589f9bc9cc42a, type: 2}
@@ -410,6 +381,8 @@ GameObject:
   - component: {fileID: 408402060}
   - component: {fileID: 408402059}
   - component: {fileID: 408402058}
+  - component: {fileID: 408402065}
+  - component: {fileID: 408402064}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -496,6 +469,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &408402064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 408402057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9712a417b8664396a16b8e28da5bf1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &408402065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 408402057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f286aec00194329b7f392c619d5b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noGyroPanel: {fileID: 1303131361}
+  vrButton: {fileID: 1812584843}
 --- !u!1 &458866237
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +882,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224118186769471164, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 34.200195
+      objectReference: {fileID: 0}
+    - target: {fileID: 224570177380802688, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 33.299805
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8e9b17de1d324ddba6589f9bc9cc42a, type: 2}
   m_IsPrefabParent: 0
@@ -960,6 +967,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1511705307266202, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
     type: 2}
   m_PrefabInternal: {fileID: 2136275656}
+--- !u!1 &1303131361 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1730370732963198, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
+    type: 2}
+  m_PrefabInternal: {fileID: 227334164}
 --- !u!1 &1541064490 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1762288926501262, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
@@ -1100,6 +1112,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1812584843 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1272319709354152, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
+    type: 2}
+  m_PrefabInternal: {fileID: 227334164}
 --- !u!1 &1861513064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,7 +1504,7 @@ Prefab:
     - target: {fileID: 224118186769471164, guid: d8e9b17de1d324ddba6589f9bc9cc42a,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 42.09996
+      value: 42.09961
       objectReference: {fileID: 0}
     - target: {fileID: 1762288926501262, guid: d8e9b17de1d324ddba6589f9bc9cc42a, type: 2}
       propertyPath: m_IsActive
