@@ -26,6 +26,8 @@ public class DinosuarController : MonoBehaviour {
 
 	public GameObject camera;
 
+	public GameManager gameManager;
+
 
 	// Use this for initialization
 	void Start () {
@@ -108,8 +110,7 @@ public class DinosuarController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Enemy" && GameManager.gameState == GameManager.GameState.Playing) {
 			AllRunAway ();
-			GameManager.GameOver ();
-			GameManager.gameState = GameManager.GameState.GameOver;
+			gameManager.GameOver ();
 		}
 	}
 }

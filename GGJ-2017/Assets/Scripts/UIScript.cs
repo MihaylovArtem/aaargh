@@ -13,10 +13,16 @@ public class UIScript : MonoBehaviour {
 	public Text gameOverText;
 	public GameObject gameOverTextObject;
 	public GameObject winTextObject;
+	public GameObject aboutTextObject;
 	public GameManager gameManager;
+	public Button vrButton;
+	public Sprite vrOnImage;
+	public Sprite vrOffImage;
+	public GameObject vrOnCamera;
+	public GameObject vrOffCamera;
 
 	public float gameOverTimer = 10.0f;
-	bool vrEnabled = false;
+	public static bool vrEnabled = false;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +45,7 @@ public class UIScript : MonoBehaviour {
 			winTextObject.SetActive (false);
 			arghTextObject.SetActive (true);
 			gameOverTextObject.SetActive (false);
+			aboutTextObject.SetActive (true);
 			string hs = "A";
 			for (int i=1; i < GameManager.highscore; i++) {
 				hs += "a";
@@ -53,14 +60,8 @@ public class UIScript : MonoBehaviour {
 			arghTextObject.SetActive (false);
 			waveTextObject.SetActive (true);
 			gameOverTextObject.SetActive (false);
+			aboutTextObject.SetActive (false);
 			waveText.text = "Wave " + GameManager.level;
-
-			var alpha = waveText.color.a - (Time.deltaTime / 2000f);
-			if (alpha < 0) {
-				alpha = 0;
-			}
-			//Debug.Log (alpha.ToString ());
-			waveText.color -= new Color(waveText.color.r, waveText.color.g, waveText.color.b, alpha);
 		}
 
 		if (GameManager.gameState == GameManager.GameState.GameOver) {
@@ -69,6 +70,7 @@ public class UIScript : MonoBehaviour {
 			arghTextObject.SetActive (false);
 			waveTextObject.SetActive (false);
 			gameOverTextObject.SetActive (true);
+			aboutTextObject.SetActive (true);
 			gameOverText.text = "You lost your cake :(\nShout to start again!\n\nYou will go to main menu in " +
 				Mathf.Round (gameOverTimer).ToString ();
 			if (gameOverTimer <= 0.0f) {
@@ -83,10 +85,15 @@ public class UIScript : MonoBehaviour {
 			arghTextObject.SetActive (false);
 			waveTextObject.SetActive (false);
 			gameOverTextObject.SetActive (false);
+			aboutTextObject.SetActive (true);
 		}
+		vrButton.image.sprite = vrEnabled ? vrOnImage : vrOffImage;
 	}
 
-	public void ShowWaveText() {
-		waveText.color = new Color(waveText.color.r, waveText.color.g, waveText.color.b, 1);
+	public void vrButtonTapped() {
+		vrEnabled = !vrEnabled;
+
+		vrOnCamera.SetActive (vrEnabled);
+		vrOffCamera.SetActive (!vrEnabled);
 	}
 }
