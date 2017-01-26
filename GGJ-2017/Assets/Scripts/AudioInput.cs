@@ -1,23 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class AudioInput : MonoBehaviour {
 
 	public static float MicLoudness;
 
-	private string _device;
-
 	//mic initialization
 	void InitMic(){
-		_clipRecord = Microphone.Start(null, true, 256, 24000);
+		_clipRecord = Microphone.Start(null, true, 999, 44100);
 		iPhoneSpeaker.ForceToSpeaker ();
 	}
 
 	void StopMicrophone()
 	{
-		Microphone.End(_device);
+		Microphone.End(null);
 	}
 
 
@@ -49,7 +48,14 @@ public class AudioInput : MonoBehaviour {
 		// levelMax equals to the highest normalized value power 2, a small number because < 1
 		// pass the value to a static var so we can access it from anywhere
 		MicLoudness = LevelMax ();
-		//Debug.Log (MicLoudness.ToString("00.00"));
+		#if UNITY_ANDROID
+		if (!DetectHeadset.Detect ()) {
+			MicLoudness = LevelMax ()*5;
+		} else {
+			MicLoudness = LevelMax ();
+		}
+			
+		#endif
 	}
 
 	bool _isInitialized;

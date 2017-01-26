@@ -14,7 +14,7 @@ public class ControlTypeScript : MonoBehaviour {
 		gameObject.GetComponent<SwipeControlScript> ().enabled = !SystemInfo.supportsGyroscope;
 
 		noGyroPanel.SetActive (!SystemInfo.supportsGyroscope);
-//		vrButton.SetActive (SystemInfo.supportsGyroscope);
+		vrButton.SetActive (SystemInfo.supportsGyroscope);
 	}
 	
 	// Update is called once per frame

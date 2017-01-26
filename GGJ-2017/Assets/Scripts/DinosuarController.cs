@@ -25,6 +25,7 @@ public class DinosuarController : MonoBehaviour {
 	public Vector3 gamePoint;
 
 	public GameObject camera;
+	public GameObject cameraVR;
 
 	public GameManager gameManager;
 
@@ -67,7 +68,8 @@ public class DinosuarController : MonoBehaviour {
 			ShootWave ();
 		}
 		if (isStarted) {
-			transform.rotation = Quaternion.Euler (new Vector3 (0, camera.transform.rotation.eulerAngles.y, 0));
+			var currentCamera = UIScript.vrEnabled ? cameraVR : camera;
+			transform.rotation = Quaternion.Euler (new Vector3 (0, currentCamera.transform.rotation.eulerAngles.y, 0));
 			if (body.transform.rotation.eulerAngles.y < 180) {
 				body.transform.rotation = Quaternion.RotateTowards (transform.rotation, Quaternion.FromToRotation (transform.position, startingPoint), Time.deltaTime * 5);
 			} else {
