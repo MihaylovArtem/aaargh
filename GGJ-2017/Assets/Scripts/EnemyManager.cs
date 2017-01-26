@@ -48,7 +48,6 @@ public class EnemyManager : MonoBehaviour {
 			enemy.transform.LookAt (Vector3.zero);
 			enemy.transform.localScale += new Vector3 (GetRandomNumber (0.8, 1.2), GetRandomNumber (0.8, 1.5), 0);
 		} else {
-			Debug.Log (GameObject.Find ("Boss(Clone)"));
 			if ((level == 5 && GameObject.Find ("Boss(Clone)")) || (level != 5)) {
 				for (int i = 0; i < enemyCount; i++) {
 					var index = Random.Range (0, monstersPool.Count);

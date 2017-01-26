@@ -8,13 +8,13 @@ public class DinosuarController : MonoBehaviour {
 	[HideInInspector]
 	float waveSpeed = 20f;
 	[HideInInspector]
-	float minVolume = 0.1f;
+	float minVolume = 0.05f;
 	[HideInInspector]
-	float maxVolume = 0.5f;
+	float maxVolume = 0.6f;
 	[HideInInspector]
-	float maxShootDelay = 4.0f;
+	float maxShootDelay = 1.0f;
 	[HideInInspector]
-	float maxShootDelayDivider = 20.0f;
+	float maxShootDelayDivider = 5.0f;
 	private float timer = 0.0f;
 
 	public GameObject hands;
