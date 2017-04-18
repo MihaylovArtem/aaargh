@@ -21,13 +21,18 @@ public class SwipeControlScript : MonoBehaviour {
 		// find speed based on delta
 		float curXSpeed = Time.deltaTime * xSpeed;
 		float curZSpeed = -Time.deltaTime * zSpeed;
-		// first update the current rotation angles with input from acceleration axis
 		if (Mathf.Abs (Input.acceleration.z) > 0.1f) {
 			var accel = (Input.acceleration.z - Mathf.Sign (Input.acceleration.z)*0.1f) / 4f * 10f * curZSpeed;
 			if (Mathf.Abs (Input.acceleration.z) > 0.5f) {
 				accel = curZSpeed * Mathf.Sign (Input.acceleration.z);
 			}
 			localRotation.eulerAngles += new Vector3 (accel, 0, 0);
+			if ((localRotation.eulerAngles.x > 75.0f && localRotation.eulerAngles.x < 90.0f)) {
+				localRotation.eulerAngles = new Vector3 (75.0f, localRotation.eulerAngles.y, 0);
+			} else if (localRotation.eulerAngles.x < 285.0f && localRotation.eulerAngles.x > 260.0f) {
+				localRotation.eulerAngles = new Vector3 (285.0f, localRotation.eulerAngles.y, 0);
+
+			}
 		}
 		if (Mathf.Abs (Input.acceleration.x) > 0.1f){
 			var accel = (Input.acceleration.x - Mathf.Sign (Input.acceleration.x)*0.1f) / 4f * 10f * curXSpeed;
